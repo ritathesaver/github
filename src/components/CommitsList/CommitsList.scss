@@ -1,0 +1,26 @@
+.commit_list {
+	width: 100%;
+	padding: 25px;
+
+	display: flex;
+	flex-direction: column;
+
+	background-color: #f6f8fa;
+
+	&_header {
+		padding-bottom: 25px;
+		font-size: 25px;
+		color: #2c2c2c;
+	}
+	a {
+		text-decoration: none;
+		color: #0366d6;
+	}
+
+	a:hover {
+		text-decoration: underline;
+	}
+	span {
+		color: #0366d6;
+	}
+}

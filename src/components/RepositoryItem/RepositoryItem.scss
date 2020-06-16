@@ -1,0 +1,41 @@
+.item {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	padding: 40px 0;
+
+	border-radius: 1px;
+	border-top: solid 1px rgba(0, 0, 0, 0.1);
+
+	&_header a {
+		color: #0366d6;
+		text-decoration: none;
+		font-size: 30px;
+		font-weight: 500;
+	}
+	&_header a:hover {
+		text-decoration: underline;
+	}
+	&_header {
+		display: flex;
+		justify-content: space-between;
+		width: 95%;
+	}
+
+	&_link {
+		display: flex;
+		justify-self: flex-end;
+		width: 24px;
+		height: 24px;
+	}
+
+	&_info {
+		display: flex;
+		justify-content: space-between;
+		width: 40%;
+		margin-top: 25px;
+
+		color: #586069;
+		font-size: 20px;
+	}
+}
