@@ -4,10 +4,12 @@ import axios from 'axios';
 import './CommitsList.scss';
 import { CommitItem } from '../CommitItem/CommitItem';
 import { Link } from 'react-router-dom';
+import { Spinner } from '../Spinner';
 
 export const CommitList = (props) => {
 	const { repoId } = props.match.params;
 	const [ commList, setCommList ] = useState([]);
+	const [ loading, setLoading ] = useState(true);
 
 	useEffect(() => {
 		(async () => {
@@ -17,6 +19,7 @@ export const CommitList = (props) => {
 			});
 
 			setCommList(data);
+			setLoading(false);
 		})();
 	}, []);
 
@@ -31,7 +34,9 @@ export const CommitList = (props) => {
 					<strong>{repoId}</strong> commits:
 				</span>
 			</div>
-			{commList.map((item) => <CommitItem item={item} key={item.id} />)}
+			{loading && <Spinner />}
+			{!loading &&
+				commList.map((item) => <CommitItem item={item} key={item.id} />)}
 		</div>
 	);
 };

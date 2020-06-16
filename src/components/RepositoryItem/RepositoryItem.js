@@ -1,8 +1,7 @@
 import React from 'react';
 import './RepositoryItem.scss';
 import { ReactComponent as LinkSvg } from '../../assets/sign.svg';
-import { Route, BrowserRouter, Link } from 'react-router-dom';
-import { CommitList } from '../CommitsList/CommitList';
+import { Link } from 'react-router-dom';
 
 export const RepositoryItem = ({ item = {} }) => {
 	return (

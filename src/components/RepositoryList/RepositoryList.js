@@ -3,9 +3,11 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import './RepositoryList.scss';
 import { RepositoryItem } from '../RepositoryItem/RepositoryItem';
+import { Spinner } from '../Spinner';
 
 export const RepositoryList = (props) => {
 	const [ repoList, setRepoList ] = useState([]);
+	const [ loading, setLoading ] = useState(true);
 
 	useEffect(() => {
 		(async () => {
@@ -15,13 +17,16 @@ export const RepositoryList = (props) => {
 			});
 
 			setRepoList(data);
+			setLoading(false);
 		})();
 	}, []);
 
 	return (
 		<div className="list">
 			<div className="list_header">Repositories:</div>
-			{repoList.map((item) => <RepositoryItem item={item} key={item.id} />)}
+			{loading && <Spinner />}
+			{!loading &&
+				repoList.map((item) => <RepositoryItem item={item} key={item.id} />)}
 		</div>
 	);
 };
